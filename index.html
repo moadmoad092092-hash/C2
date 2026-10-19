@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123d2e">
+  <meta name="description" content="مواقيت الصلاة حسب موقعك أو مدينتك، مع الصلاة القادمة والعد التنازلي.">
+  <title>مواقيت الصلاة</title>
+  <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#0b5d45">
+      <link rel="manifest" href="manifest.webmanifest">
+  </head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">۞</div>
+      <div>
+        <h1>مواقيت الصلاة</h1>
+        <p class="subtitle">مواقيت حسب موقعك، بكل بساطة</p>
+      </div>
+    </header>
+
+    <section class="location-panel panel" aria-labelledby="location-heading">
+      <h2 id="location-heading">موقعك</h2>
+      <p id="location-label" class="location-label">اختر مدينة أو حدّد موقعك تلقائيًا</p>
+      <div class="location-actions">
+        <button id="gps-button" class="button button-primary" type="button">⌖ تحديد موقعي تلقائيًا</button>
+        <label class="city-select-label" for="city-select">أو اختر مدينة</label>
+        <select id="city-select" aria-label="اختر مدينة ليبية">
+          <option value="">اختر مدينة ليبية…</option>
+        </select>
+      </div>
+      <p id="location-help" class="muted small">يتطلب تحديد الموقع موافقتك واتصالًا آمنًا (HTTPS).</p>
+    </section>
+
+    <section class="date-row" aria-live="polite">
+      <div><span class="date-icon">☼</span><span id="gregorian-date">—</span></div>
+      <div><span class="date-icon">☾</span><span id="hijri-date">التاريخ الهجري يظهر عند توفره</span></div>
+    </section>
+
+    <section id="next-prayer-card" class="next-prayer-card" aria-live="polite">
+      <p class="eyebrow">الصلاة القادمة</p>
+      <h2 id="next-prayer-name">—</h2>
+      <p id="next-prayer-time" class="next-time">--:--</p>
+      <div class="countdown-wrap">
+        <span>الوقت المتبقي</span>
+        <strong id="countdown">--:--:--</strong>
+      </div>
+    </section>
+
+    <section class="prayers-section">
+      <div class="section-heading">
+        <h2>مواقيت اليوم</h2>
+        <span id="method-label" class="method-pill">طريقة الحساب: —</span>
+      </div>
+      <div id="prayer-list" class="prayer-grid">
+        <div class="loading-card">اختر موقعك لتحميل المواقيت الحقيقية.</div>
+      </div>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <button id="retry-button" class="button button-secondary hidden" type="button">إعادة المحاولة</button>
+
+    <footer>
+      <p>تُجلب المواقيت من خدمة AlAdhan API. قد تختلف النتائج عن التقويم الرسمي المحلي.</p>
+      <p>طريقة الحساب الافتراضية: رابطة العالم الإسلامي (MWL). لم يتم التحقق من مطابقتها رسميًا للمواقيت المعتمدة في ليبيا.</p>
+    </footer>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

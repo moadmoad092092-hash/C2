@@ -1,0 +1,81 @@
+:root {
+  color-scheme: light;
+  --green: #123d2e;
+  --green-2: #1d5a42;
+  --green-soft: #eaf3ed;
+  --gold: #d6b46a;
+  --ink: #1c2c25;
+  --muted: #68766e;
+  --paper: #f7f8f4;
+  --white: #fff;
+  --border: #e2e9e2;
+  --shadow: 0 12px 32px rgba(18, 61, 46, .08);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+}
+button, select { font: inherit; }
+.app-shell { width: min(760px, 100%); margin: 0 auto; padding: 22px 16px 36px; }
+.topbar { display: flex; align-items: center; gap: 13px; margin: 8px 0 24px; }
+.brand-mark {
+  width: 52px; height: 52px; display: grid; place-items: center; flex: 0 0 auto;
+  border-radius: 17px; color: var(--gold); background: var(--green); font-size: 31px;
+  box-shadow: var(--shadow);
+}
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 4px; font-size: 1.55rem; color: var(--green); }
+.subtitle { margin-bottom: 0; color: var(--muted); font-size: .91rem; }
+.panel { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 18px; box-shadow: var(--shadow); }
+.location-panel h2, .section-heading h2 { font-size: 1.06rem; margin-bottom: 10px; }
+.location-label { margin-bottom: 15px; font-weight: 700; }
+.location-actions { display: grid; gap: 10px; }
+.button { border: 0; border-radius: 13px; padding: 13px 16px; font-weight: 700; cursor: pointer; transition: transform .15s, opacity .15s; }
+.button:active { transform: scale(.99); }
+.button:disabled { opacity: .6; cursor: wait; }
+.button-primary { background: var(--green); color: white; }
+.button-secondary { display: block; width: 100%; margin-top: 10px; background: var(--green-soft); color: var(--green); border: 1px solid #c9dfcf; }
+.city-select-label { color: var(--muted); font-size: .88rem; margin-top: 3px; }
+select { width: 100%; min-height: 48px; padding: 10px 12px; border-radius: 12px; color: var(--ink); background: white; border: 1px solid #cad8cd; }
+.muted { color: var(--muted); }
+.small { font-size: .8rem; line-height: 1.7; margin: 12px 0 0; }
+.date-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 15px; padding: 17px 3px; color: var(--muted); font-size: .88rem; }
+.date-row > div { display: flex; align-items: center; gap: 7px; }
+.date-icon { color: #a8832e; font-size: 1.05rem; }
+.next-prayer-card {
+  position: relative; overflow: hidden; border-radius: 22px; padding: 23px 20px;
+  background: linear-gradient(135deg, #123d2e, #1d5a42); color: white;
+  box-shadow: 0 16px 35px rgba(18, 61, 46, .18);
+}
+.next-prayer-card::after { content: "۞"; position: absolute; left: -6px; bottom: -43px; color: rgba(214,180,106,.13); font-size: 150px; pointer-events: none; }
+.eyebrow { margin-bottom: 6px; color: #e8d5a5; font-size: .9rem; }
+#next-prayer-name { margin-bottom: 2px; font-size: 1.6rem; }
+.next-time { font-size: 1.05rem; margin-bottom: 18px; color: #f3f5f0; }
+.countdown-wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 13px; border-top: 1px solid rgba(255,255,255,.2); color: #d9e5dc; }
+.countdown-wrap strong { color: var(--gold); font-size: 1.25rem; direction: ltr; font-variant-numeric: tabular-nums; }
+.prayers-section { margin-top: 25px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.section-heading h2 { margin: 0; }
+.method-pill { border-radius: 100px; background: #f0e8d4; color: #775d22; padding: 6px 10px; font-size: .72rem; }
+.prayer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.prayer-card { display: flex; justify-content: space-between; align-items: center; gap: 8px; background: white; border: 1px solid var(--border); border-radius: 15px; padding: 15px 14px; min-height: 73px; }
+.prayer-card.active { border: 1.5px solid var(--gold); background: #fffaf0; box-shadow: 0 5px 18px rgba(214,180,106,.13); }
+.prayer-name { font-weight: 700; }
+.prayer-time { font-weight: 800; direction: ltr; font-variant-numeric: tabular-nums; color: var(--green); }
+.prayer-card.active .prayer-name::before { content: "●"; color: #b78e36; font-size: .55rem; margin-left: 6px; vertical-align: middle; }
+.loading-card { grid-column: 1/-1; background: white; border: 1px dashed #c9d8cc; border-radius: 15px; padding: 22px 15px; color: var(--muted); text-align: center; line-height: 1.8; }
+.status { margin-top: 14px; color: var(--muted); font-size: .86rem; line-height: 1.7; }
+.status.error { padding: 12px; border-radius: 12px; color: #8a2929; background: #fff0f0; border: 1px solid #f0cece; }
+.hidden { display: none !important; }
+footer { margin-top: 26px; color: #77837b; font-size: .75rem; line-height: 1.8; text-align: center; }
+footer p { margin-bottom: 5px; }
+@media (min-width: 560px) {
+  .app-shell { padding: 30px 22px 42px; }
+  .location-actions { grid-template-columns: 1fr 1fr; align-items: center; }
+  .city-select-label { grid-column: 2; grid-row: 1; align-self: end; margin: 0 2px -5px 0; }
+  #city-select { grid-column: 2; grid-row: 2; }
+  #gps-button { grid-column: 1; grid-row: 2; }
+  .prayer-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
